@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:63342", maxAge = 3600)
+//@CrossOrigin(origins = *, maxAge = 3600)
 public class FileController {
 
     private static final Logger log = LoggerFactory.getLogger(FileController.class);
@@ -26,6 +26,7 @@ public class FileController {
     }
 
     @GetMapping(value = "/api/load-data")
+    @CrossOrigin
     public Map<String, List<Member>> loadData(@Value("${config.file-to-load}") String fileToLoad) throws Exception {
 
         log.info("Got an request to load file {}", fileToLoad);

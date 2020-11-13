@@ -26,6 +26,14 @@
     <h3>Member Data File Viewer App</h3>
 
     <!-- Display your states in a drop down here -->
+	<select name="mySelect" id="mySelect"
+      ng-options="option[0].state for option in memberData track by option[0].id"
+      ng-model="data.selectedOption">
+    
+      <option value="">All</option>
+      
+    </select>
+	<h3>Selected option is: {{data.selectedOption[0].state}}</h3>
     <br />
 
     <div>
@@ -46,8 +54,15 @@
                 </thead>
 
                 <tbody>
-                    <!-- Populate member details per state here -->
-
+                <tr ng-repeat="member in memberData.MN">
+  					<td>{{member.id}}</td>
+  					<td>{{member.address}}</td>
+  					<td>{{member.city}}</td>
+  					<td>{{member.firstName}}</td>
+  					<td>{{member.lastName}}</td>
+  					<td>{{member.state}}</td>
+  					<td>{{member.zip}}</td>
+				</tr>
                 </tbody>
             </table>
 
