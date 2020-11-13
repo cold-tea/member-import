@@ -33,7 +33,6 @@
       <option value="">All</option>
       
     </select>
-	<h3>Selected option is: {{data.selectedOption[0].state}}</h3>
     <br />
 
     <div>
@@ -54,7 +53,7 @@
                 </thead>
 
                 <tbody>
-                <tr ng-repeat="member in memberData.MN">
+                <tr ng-repeat="member in memberArray | filter:{state:data.selectedOption[0].state && data.selectedOption[0].state !== '' ? data.selectedOption[0].state : ''}">
   					<td>{{member.id}}</td>
   					<td>{{member.address}}</td>
   					<td>{{member.city}}</td>
